@@ -1,0 +1,32 @@
+<div class="form-container">
+    <div action="" class="calculator-form">
+        <label for="num1">First Number</label>
+        <input [(ngModel)]="num1" type="text" placeholder="Enter first number">
+
+        <label for="num2">Second Number</label>
+        <input [(ngModel)]="num2" type="text" placeholder="Enter second number">
+
+        <div class="button-group">
+            <button class="save-btn" (click)="btnCalculate('+')">
+                <i class="fa-solid fa-add"></i>Add
+            </button>
+            <button class="save-btn" (click)="btnCalculate('-')">
+                <i class="fa-solid fa-minus"></i>Subtract
+            </button>
+        </div>
+
+        <div class="result-text">
+            Result: {{result}}
+            @if (result != 0) {
+            @if (result < 10) { <div class="error">
+                The number is less than 10;
+        </div>
+        } @else {
+        <div class="correct">
+            The number is not less than 10;
+        </div>
+        }
+        }
+    </div>
+</div>
+</div>
