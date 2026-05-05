@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { SharedModules } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-home-page',
-  imports: [FormsModule],
+  imports: [...SharedModules],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })
+
 export class HomePage {
   public name: string = 'Angular';
   protected name2: string = 'React';

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { SharedModules } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-calculator-page',
-  imports: [FormsModule],
+  imports: [...SharedModules],
   templateUrl: './calculator-page.html',
   styleUrl: './calculator-page.scss',
 })

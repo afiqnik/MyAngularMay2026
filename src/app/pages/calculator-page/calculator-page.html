@@ -18,15 +18,18 @@
         <div class="result-text">
             Result: {{result}}
             @if (result != 0) {
-            @if (result < 10) { <div class="error">
+            <!-- @if (result < 10) { <div class="error" [ngClass]="{'correct': result >= 10}">
                 The number is less than 10;
         </div>
         } @else {
         <div class="correct">
             The number is not less than 10;
         </div>
-        }
-        }
+        } -->
+
+            <div [ngClass]=" result <=10 ? 'error' : 'correct'">
+                'The number is {{ result <=10 ? 'less than 10' : ' not less than 10' }} </div>
+                    }
+            </div>
+        </div>
     </div>
-</div>
-</div>
