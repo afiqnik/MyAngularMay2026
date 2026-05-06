@@ -1,7 +1,14 @@
 <mat-toolbar>
   <div class="title">Menu</div>
   <span class="spacer"></span>
-  <a routerLink="/home" mat-button class="icon">Home</a>
+
+  @for (toolbarItem of toolbarItems; track $index) {
+  <!-- <a routerLink="{{toolbarItem.route}}" mat-button class="icon">{{toolbarItem.title}}</a> -->
+
+  <a (click)="navigatePage(toolbarItem)" mat-button class="icon">{{toolbarItem.title}}</a>
+  }
+
+  <!-- <a routerLink="/home" mat-button class="icon">Home</a>
   <a routerLink="/calculator" mat-button class="icon">Calculator</a>
-  <a routerLink="/todo" mat-button class="icon">Todo</a>
+  <a routerLink="/todo" mat-button class="icon">Todo</a> -->
 </mat-toolbar>
