@@ -22,7 +22,8 @@ export class Toolbar {
     { route: '/home', title: 'Home' },
     { route: '/calculator', title: 'Calculator' },
     { route: '/todo', title: 'Todo' },
-    { route: '/about', title: 'About' }
+    { route: '/reports', title: 'Reports' }
+
   ]
 
   constructor(private router: Router, private data: Data) { }

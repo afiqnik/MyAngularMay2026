@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomePage } from './pages/home-page/home-page';
 import { CalculatorPage } from './pages/calculator-page/calculator-page';
 import { TodoPage } from './pages/todo-page/todo-page';
+import { ReportsPage } from './pages/reports-page/reports-page';
 
 
 export const routes: Routes = [
@@ -21,5 +22,10 @@ export const routes: Routes = [
     {
         path: 'todo',
         component: TodoPage
+    },
+    {
+        path: 'reports',
+        component: ReportsPage
     }
+
 ];
