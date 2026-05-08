@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedModules } from '../../shared/shared.module';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, RouterLink } from '@angular/router';
+import { OnInit } from '@angular/core';
+import { Api } from '../../services/api';
 
 interface reportItem {
   title: string;
@@ -16,7 +18,7 @@ interface reportItem {
   styleUrl: './reports-page.scss',
 })
 
-export class ReportsPage {
+export class ReportsPage implements OnInit {
   public reportList: reportItem[] = [
     {
       title: 'Sample report 1',
@@ -32,6 +34,24 @@ export class ReportsPage {
   public dataSource: any = new MatTableDataSource(this.reportList);
   public displayedColumns: string[] = ['no', 'title', 'date', 'actions'];
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private apiServices: Api,
+    private cdr: ChangeDetectorRef
+  ) { }
+
+  async ngOnInit() {
+    try {
+      let response: any = await this.apiServices.httpGet('/reports');
+      console.log(response);
+      this.reportList = response.data;
+      this.dataSource = new MatTableDataSource(this.reportList);
+      this.dataSource.data = this.dataSource.data.map((report: any) => ({ ...report }));
+      this.cdr.detectChanges();
+    } catch (error) {
+
+    }
   }
+
+
 }
